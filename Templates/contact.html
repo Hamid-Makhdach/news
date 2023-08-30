@@ -1,0 +1,241 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>DETECTEUR DE FAUSSES NOUVELLES</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+
+
+
+input[type="text"] {
+  display:flex;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  margin-top: 1.5%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form {
+    margin-left: 0%;
+    margin-top: 5%;
+    height: 550px;
+    width: 60%;
+    background-color: rgba(255,255,255,0.13);
+    position:absolute;
+    transform: translate(-80%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+  
+textarea {
+  width: 100%;
+  height: 250px;
+  padding: 10px;
+  margin-top:1%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-color:var(--bg-color) ;
+  resize: vertical;
+ 
+}
+label{
+  margin-left: 1%;
+}
+
+
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-33%);
+    left: 40%;
+    top: 60%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        rgb(0, 4, 255),
+        rgba(0, 4, 255, 0.144)
+    );
+    left: -350px;
+    top: -140px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #29fd53,
+        rgb(61, 255, 2)
+    );
+    right: -100px;
+    bottom: -80px;
+  
+}
+
+   
+.box-shadow {
+      font-family: cursive, sans-serif;
+      background-color: rgba(255,255,255,0.13);;
+      color: white;
+      padding:1%;
+      border: 2px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 4px;
+      box-shadow: 0 0 40px rgba(8,7,16,0.6);
+      margin-top: 49%;
+      margin-left: 2%;
+      width: 60%;
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <header>
+    <a href="{% url 'home' %}" class="logo"><i class="ri-home-smile-fill"></i>
+      <sapn>DFN</sapn>
+    </a>
+    <ul class="navbar">
+      <li><a href="{% url 'home' %}" class="active">Accueil</a></li>
+      <li><a href="{% url 'predict' %}">Prediction</a></li>
+      <li><a href="{% url 'hist' %}">Historiques</a></li>
+      <li><a href="{% url 'contact' %}">Contactez-nous</a></li>
+      <li><a href="{% url 'about' %}">A propos</a></li>
+    </ul>
+  
+    <div class="main">
+      <a href="{% url 'logout' %}" class="user"><i class="ri-logout-box-line"></i>Déconnexion</a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+  
+
+
+  </header>
+  
+    <!--<input type="file" accept="image/*">-->
+
+    <form method="POST" >
+      <div id="pre" class="container">
+        <box-icon type='solid' name='contact'></box-icon><h2>Contactez-nous</h2>
+        <input type="text" placeholder="Email">
+        <input type="text" placeholder="objet">
+        <textarea id="nouvelle" name="text" placeholder="Message"></textarea>
+        <button type="submit">Envoyer</button>
+        </div>
+    </form>
+    <div class="box-shadow">
+     <div class="contact">
+         <h3>Contact information</h3>
+									<p class="mb-4">Nous sommes ouverts à toute suggestion ou simplement </p>
+                  <p>pour discuter</p>
+				        
+                  <div class="dbox w-100 d-flex align-items-start">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-map-marker"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Address:</span> Faculté des Sciences et Techniques d'Errachidia </p>
+					          </div>
+				          </div>
+
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-phone"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Phone:</span> <a href="tel://1234567920">+212 658980514</a></p>
+					          </div>
+				          </div>
+
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-paper-plane"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Email:</span> <a href="mailto:info@yoursite.com">h.makhdach@edu.umi.ac.ma</a></p>
+					          </div>
+				          </div>
+
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-globe"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+					          </div>
+				          </div>
+				        	
+                  
+                  <div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+                      <i class="fa fa-facebook-official" aria-hidden="true"></i>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p><span>Facebook</span> <a href="#">Hamid makhdach</a></p>
+					          </div>
+				          </div>
+
+
+                  <div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+                      <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </div>
+				        		<div class="text pl-3">
+					            <p><span>twitter</span> <a href="#">Hamid makhdach</a></p>
+					          </div>
+				          </div>
+
+
+                 
+</div>
+
+</div>
+      
+
+  <script src="{% static 'script.js' %}"></script>
+  <footer>
+    <p>&copy; 2023 Notre Site Web. Tous droits réservés.</p>
+</footer>
+</body>
+
+</html>

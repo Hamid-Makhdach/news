@@ -1,0 +1,309 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DETECTEUR DE FAUSSES NOUVELLES</title>
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"  rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<style>
+body{
+        background-image: url("{% static 'images/landing.jpg' %}");
+
+}
+.news-list {
+    width: 350px;
+    margin-top: 11%;
+    border: 1px solid #29fd53;
+    padding: 10px;
+    float: left;
+    border: 3px outset #3f3e3e;
+    border-radius: 5px;
+    background-color: #252424;
+
+}
+
+
+.news-item {
+    cursor: pointer;
+    padding: 5px;
+    margin: 3px;
+    font-family: 'Merriweather', serif;    
+    text-align: justify;
+    text-decoration: dotted;
+    font-size: 16px;
+    background-color: rgb(14, 13, 13);
+    border: 1px outset black;
+    border-radius: 10px;
+    height: 20%;
+    
+}
+.category{
+    font-family: 'Merriweather', serif;    
+    text-align: justify;
+    text-decoration: dotted;
+    font-size: 16px;
+    border: 2px outset #29fd53;
+    border-radius: 6px;
+    height: 30px;
+    margin-left: 79.4%;
+    margin-top: -2%;
+    background-color: #29fd53;
+    padding: 2%;
+}
+
+.news-item:hover {
+    background-color: #222327;
+}
+/* ... */
+.hidden-content {
+    display: none;
+}
+/* ... */
+/* CSS styles for the news frame */
+.read-more-button:hover{
+   background-color:  #29fd53;
+}
+.read-more-button{
+    width:auto;
+    background-color: blue;
+}
+.fullcontent{
+    margin-top: 11%;
+    margin-left: 26%;
+    width:74%;
+    font-family: 'Merriweather', serif;    
+    text-align: justify;
+    text-decoration: dotted;
+    font-size: 16px;
+    border-radius: 5px;
+    border-style: outset;
+    border-color: #3f3e3e;
+    background-color: #252424;
+}
+
+
+
+
+
+
+
+
+.resultat {
+        margin-top: 10px;
+        font-weight: bold;
+        width: 10%;
+      }
+      :root {
+    --success: red;
+    --progress: blue;
+  }
+  
+ 
+  
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-right: 10px; /* Ajustez la valeur selon vos besoins */
+    text-align: center;
+  
+  }
+  
+  .containers {
+    max-width: 700px;
+    margin: 0px auto;
+    width: 40%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 6%;
+    
+  }
+  
+  .text-center { text-align:center;  }
+  
+  .progressbar-wrapper {
+    background-color: #dfe6e9;
+    color: white;
+    border-radius: 20px;
+    width: 80%;
+    
+  
+  }
+   
+  .progressbar {
+    background-color: var(--progress);
+    color: white;
+    padding: 0.5rem;
+    text-align: right;
+    font-size: 15px;
+    border-radius: 20px;
+  }
+  
+  .progressbar[title="downloading"] {
+  
+     background-color: var(--progress);
+     
+  }
+  
+  .progressbar[title="downloaded"] {
+     
+     background-color: var(--success);
+  }
+  
+  .news {
+    margin-bottom: 2em; 
+    margin-right: 5%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 1px solid #e6e0db;
+    background-color: #ffffff; 
+    padding: inherit;
+    text-align: justify;
+    text-decoration:dotted;
+    width: 76%;
+  }
+  .fp{
+    width: {{ paragraph.fake_p }}%;
+  }
+
+  .tp{
+    width: {{true_p}}%;
+  }
+
+
+
+
+
+</style>
+</head>
+<!-- ... -->
+<!-- ... -->
+<header>
+    <a href="{% url 'home' %}" class="logo"><i class="ri-home-smile-fill"></i><sapn>DFN</sapn>
+    </a>
+    <ul class="navbar">
+      <li><a href="{% url 'home' %}" class="active">Accueil</a></li>
+      <li><a href="{% url 'poli' %}">Politique</a></li>
+      <li><a href="{% url 'eco' %}">Economie</a></li>
+      <li><a href="{% url 'sport' %}">Sport</a></li>
+      <li><a href="autre.html">Autre</a></li>
+    </ul>
+      <div class="main">
+        <a href="{% url 'logout' %}" class="user"><i class="ri-logout-box-line"></i>Déconnexion</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
+
+
+  </header>
+<!-- ... -->
+<!-- ... -->
+<body>
+    <div style="margin-top: -10.2%;">
+        <p>kkkkkkkkkkk</p>
+        <p>kkkkkkkkkkk</p>
+        <p>kkkkkkkkkkk</p>
+        <p>kkkkkkkkkkk</p>
+        <p>kkkkkkkkkkk</p>
+    </div>
+  <div class="news-list">
+      <div class="news-container">
+          {% for paragraph in predicted_paragraphs %}
+          {% if  paragraph.category == 'SPORT' %}
+
+          <div class="news-item" data-news-id="{{ paragraph.id }}">
+          <div>  <span class="category" >{{ paragraph.category }}</span></div>
+          <br>
+              <span class="news-title">{{ paragraph.titre }}</span>
+              <span class="news-date">{{ paragraph.created_at }}</span>
+              <div class="news-preview">
+                  <p>{{ paragraph.text|safe|slice:":100" }}</p>
+                  <button class="read-more-button">Lire plus...</button>
+              </div>
+
+
+            <div class="news-full-content hidden-content" >{{ paragraph.text|safe }} 
+                <div class="prob">
+                <h2 class="text-center" style="color: black;">Probabilite:</h2>
+      <div class="containers" style="margin-bottom: 2%;margin-left: 1.5%;margin-right: -2%;">
+        <br>
+        <p style="color: black;">La nouvelle est fausse:</p>
+        <div class="progressbar-wrapper">
+          <div title="downloaded" class="progressbar fp">{{ paragraph.fake_p }}</div>
+        </div>
+      </div>
+      <div class="containers">
+        <p style="color: black;margin-left: -7%;">La nouvelle est Vraie:</p>
+        <div class="progressbar-wrapper">
+          <div title="downloading" class="progressbar tp"  > {{ paragraph.true_p }}</div>
+        </div>
+      </div>
+    </div>      </div>
+              
+              
+          </div>
+          {%endif%}
+          {% endfor %}
+      </div>
+  </div>
+  <div class="news-content" id="news-content">
+      <!-- Ici s'affichera le contenu complet de la nouvelle sélectionnée -->
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const newsItems = document.querySelectorAll('.news-item');
+    const newsContent = document.getElementById('news-content');
+
+    newsItems.forEach(function(item) {
+        const previewContent = item.querySelector('.news-preview p');
+        const readMoreButton = item.querySelector('.read-more-button');
+        const fullContent = item.querySelector('.news-full-content');
+
+        readMoreButton.addEventListener('click', function() {
+            const newsTitle = item.querySelector('.news-title').textContent;
+            const newsDate = item.querySelector('.news-date').textContent;
+
+            newsContent.innerHTML = `
+                
+                <div class="fullcontent">
+                    <p style="margin-left: 1.5%;color:#ffff; ">Date : ${newsDate}</p>
+
+                    <p style="margin-left: 1.5%; color:#ffff;">Titre : ${newsTitle}</p>
+                <p style="margin-left: 1.5%; margin-right: 1.5%;" >${fullContent.innerHTML}</p>
+                    </div>
+            `;
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Vous pouvez également utiliser 'auto' pour un comportement par défaut
+            });
+        });
+    });
+});
+
+</script>
+<footer>
+    <p>&copy; 2023 Notre Site Web. Tous droits réservés.</p>
+</footer>
+  
+</body>
+<!-- 
+    <h2>${newsTitle}</h2>
+    <p>Date: ${newsDate}</p>
+ -->
+<!-- ... -->

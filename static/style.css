@@ -1,0 +1,263 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+:root{
+  --bg-color: #222327;
+  --text-color:#fff;
+  --main-color:#29fd53;
+}
+body{
+  height:max-content;
+  color: var(--text-color);
+  background-color: #222327;
+}
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  right:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+ /* background:#0d1323;*/
+  padding:28px 12%;
+  transition:all .50s ;
+  background-color: rgb(29, 27, 27);
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(114, 111, 111, 0.1);
+}
+
+header.scrolled {
+  background-color: rgba(228, 4, 4, 0.8); /* Définit une couleur d'arrière-plan semi-transparente lorsque l'en-tête est défilé */
+}
+.logo{
+  display: flex;
+  align-items: center;
+  color: white;
+  text-shadow: 1px 1px 2px rgb(0, 4, 255), 0 0 50px rgb(81, 255, 0), 0 0 5px rgb(25, 255, 4);
+  margin-left: -8%;
+}
+
+.logo i{
+  color: var(--main-color);
+  font-size:28px;
+  margin-right: 1px;
+}
+.logo span{
+  color:var(--text-color);
+  font-size: 1.6rem;
+  font-weight: 600  ;
+ 
+}
+.navbar{
+  display:flex;
+}
+.navbar a{
+  color:var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding:5px 0;
+  margin:0px 30px;
+  transition: all .50s ease;
+}
+.navbar a:hover{
+  color:var(--main-color);
+}
+.navbar a.active{
+  color:var(--main-color);
+}
+.main{
+  display:flex;
+  align-items: center;
+  margin-right: -10%;
+}
+.main a{
+  margin-right:25px;
+  margin-left:10px;
+  color:var(--text-color);   
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition:all .50s ease;
+}
+.user{
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-color:var(--main-color) ;
+  padding:5px 5px 5px 5px;
+}
+.user i{
+  color:var(--main-color);
+  font-size:20px;
+  margin-right: 7px;
+}
+.main a:hover{
+  color:var(--main-color);   
+}
+#menu-icon{
+  font-size: 35px;
+  color:var(--text-color);
+  cursor: pointer;
+  z-index: 10001;
+  display: none;
+}
+@media (max-width:1280px ){
+  .logo{
+    margin-left:0%;
+  }
+  #menu-icon{
+    display: block;
+    margin-right:60px;
+  }
+  header{
+    padding:14px 2%;
+    transition: .2s;
+  }
+  .navbar a{
+    padding:5px 0;
+    transition:0px 20px;
+  }
+}
+
+@media (max-width:1090px ){
+  .logo{
+    margin-left:0%;
+  }
+  #menu-icon{
+    display: block;
+    margin-right:60px;
+  }
+  .navbar{
+    position:absolute;
+    top:100%;
+    right: -100%;
+    width:230px;
+    height: 29h;
+    margin-right:11%;
+    background:var(--main-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    transition:all .50s ease;
+  }
+  .navbar a{
+    display: block;
+    margin: 12px 0;
+    padding: 0px 25px;
+    transition: all .50s ease;
+  }
+  .navbar a:hover{
+    color:var(--text-color);
+    transform: translateY(5px);
+  }
+  .navbar a.active{
+    color:var(--text-color);
+  }
+  .navbar.open{
+    right:2%;
+
+  }
+
+}
+
+/*--------------------------Prediction.html------------------------*/
+/*input[type="file"],*/
+
+
+
+button {
+  display: block;
+  width: 10%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: blue;
+}
+footer {
+  background-color: #777;
+  padding: 8px;
+  text-align: center;
+  margin-top: 100%;
+  color: white;
+}
+select{
+  margin-top: 1%;
+  padding:0%;
+  margin-left: 14.5%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-color:var(--bg-color) ;
+  resize: vertical;
+}
+
+hr {
+  margin-top: 9%;
+  border: none;
+  border-top: 3px double #fffafa;
+  color: #e6e0e0;
+  overflow: visible;
+  text-align: center;
+  height: 0px;
+  position:absolute;
+}
+
+hr:after {
+  background: #25262b;
+  content: 'Detecteur de fausses nouvelles';
+  padding: 0 0px;
+  position: relative;
+  top: -13px;
+}
+
+
+
+
+
+/*background-image: url('C:/Users/Hamid/Desktop/projectt/myproject/Templates/image/images.jpeg');
+background-size:30%;
+background-repeat:no-repeat;
+background-attachment: fixed;*/
+
+/*.containers {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page-list {
+  list-style: none;
+  padding: 0;
+}
+
+.page-list li {
+  margin-bottom: 10px;
+}
+
+.page-list li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.page-list li a:hover {
+  color: #000;
+}
+
+.hidden {
+  display: none;
+}

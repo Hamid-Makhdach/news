@@ -1,0 +1,325 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>DETECTEUR DE FAUSSES NOUVELLES</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+
+  <style>
+    input[type="text"] {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      margin-top: 1.5%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form {
+      margin-left: 0%;
+      margin-top: 5%;
+      height: 550px;
+      width: 60%;
+      background-color: rgba(255, 255, 255, 0.13);
+      position: absolute;
+      transform: translate(-80%, -50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+      padding: 50px 35px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 250px;
+      padding: 10px;
+      margin-top: 1%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      border-color: var(--bg-color);
+      resize: vertical;
+
+    }
+
+    label {
+      margin-left: 1%;
+    }
+
+
+    .background {
+      width: 430px;
+      height: 520px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 40%;
+      top: 60%;
+    }
+
+    .background .shape {
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .shape:first-child {
+      background: linear-gradient(rgb(0, 4, 255),
+          rgba(0, 4, 255, 0.144));
+      left: -350px;
+      top: -100px;
+    }
+
+    .shape:last-child {
+      background: linear-gradient(to right,
+          #30fd29,
+          rgb(2, 255, 2));
+      right: -90px;
+      bottom: -90px;
+    }
+
+
+
+
+
+
+
+
+
+    .resultat {
+      margin-top: 18%;
+      font-weight: bold;
+      width: 100%;
+      margin-left: 1.5%;
+      margin-bottom: 2em;
+      margin-right: 5%;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      border: 1px solid #222327;
+      background-color: #222327;
+      padding: inherit;
+      text-align: justify;
+      text-decoration: dotted;
+      width: 76%;
+    }
+
+    :root {
+      --success: red;
+      --progress: blue;
+    }
+
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-right: 100px;
+      /* Ajustez la valeur selon vos besoins */
+      text-align: center;
+
+    }
+
+
+    .text-center {
+      text-align: center;
+    }
+
+    .progressbar-wrapper {
+      background-color: #dfe6e9;
+      color: white;
+      border-radius: 20px;
+      width: 100%;
+
+
+    }
+
+    .progressbar {
+      background-color: var(--progress);
+      color: white;
+      padding: 1rem;
+      text-align: right;
+      font-size: 12px;
+      border-radius: 20px;
+    }
+
+    .progressbar[title="downloading"] {
+
+      background-color: var(--progress);
+    }
+
+    .progressbar[title="downloaded"] {
+
+      background-color: var(--success);
+    }
+
+
+
+    .fp {
+      width: {{fake_probability}}%;
+    }
+
+    .tp {
+      width: {{true_probability}}%;
+    }
+
+  
+    .proba{
+      margin-left: 63%;
+    }
+    .fv{
+      margin-left: 63%;
+      margin-top: 8%;
+      font-family: 'Playfair Display', serif;
+      line-height: 2;
+
+      font-size: 13.5px;
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <header>
+    <a href="{% url 'home' %}" class="logo"><i class="ri-home-smile-fill"></i>
+      <sapn>DFN</sapn>
+    </a>
+    <ul class="navbar">
+      <li><a href="{% url 'home' %}" class="active">Accueil</a></li>
+      <li><a href="{% url 'predict' %}">Prediction</a></li>
+      <li><a href="{% url 'hist' %}">Historiques</a></li>
+      <li><a href="{% url 'contact' %}">Contactez-nous</a></li>
+      <li><a href="{% url 'about' %}">A propos</a></li>
+    </ul>
+    <div class="main">
+      <a href="{% url 'logout' %}" class="user"><i class="ri-logout-box-line"></i>Déconnexion</a>
+
+      <div class="bx bx-menu" id="menu-icon"></div>
+
+    </div>
+
+
+  </header>
+  <!--<input type="file" accept="image/*">-->
+
+  <form method="POST" action="{% url 'predict' %}">
+    {% csrf_token %}
+    <div class="catego">
+      <label>Veuillez choisir la catégorie de votre article :
+        <select name="categ">
+          <optgroup label="les catégorie">
+            <option value="POLITIQUE" name="poli">POLITIQUE</option>
+            <option value="ECONOMIE">ECONOMIE</option>
+            <option value="SPORT">SPORT</option>
+            <option value="AUTRE">AUTRE</option>
+          </optgroup>
+        </select>
+      </label>
+    </div>
+    <div id="pre" class="container">
+      <h2></h2>
+      <input type="text" name="titre" placeholder="Titre">
+      <textarea id="nouvelle" name="text" placeholder="Saisissez votre nouvelle ici..."></textarea>
+      <button type="submit">Détecter</button>
+    </div>
+  </form>
+
+
+  
+
+{% if colored_text %}
+<div class="fv">
+  
+  {% if fake_probability > true_probability %}
+    <h2 style="margin-left: 20%; color: red;">🚨 Alerte Véracité :🚨 :</h2> 
+    <br>
+    <b>
+    <p>Cette nouvelle a été identifiée comme étant potentiellement</p>
+    <p>fausse par notre système de détection avancé. Avant de partager ou </p> 
+    <p>de tirer des conclusions,et pour vous donner le choix de la décision, </p>
+    <p>vous pouvez vous fier aux estimations suivantes: </p></b>
+  {%else%}
+    <h2 style="margin-left: 1%; color: blue;" >🌟 Confirmation de Véracité :🌟  </h2>
+    <br>
+    <b>
+    <p>Cette nouvelle a été authentifiée par notre système de détection</p>
+    <p>avancé comme étant crédible et véridique. Avant de partager ou </p> 
+    <p>de tirer des conclusions,et pour vous donner le choix de la décision,</p> 
+    <p>vous pouvez vous fier aux estimations suivantes:</p> </b>
+    {% endif %}
+
+</div>
+
+<div class="proba">
+
+  <br>
+  <h2 class="text-center" style="margin-left: 29%;">ESTIMATIONS:</h2>
+  <br>
+  <br>
+  <div class="containers">
+    <p>La nouvelle est fausse:</p>
+    <div class="progressbar-wrapper">
+      <div title="downloaded" class="progressbar fp">{{ fake_probability }}%</div>
+    </div>
+  </div>
+  <br>
+  <div class="containers">
+    <p>La nouvelle est Vraie:</p>
+    <div class="progressbar-wrapper">
+      <div title="downloading" class="progressbar tp">{{ true_probability }}%</div>
+    </div>
+  </div>
+</div>
+
+  <div class="resultat" id="resultat">
+    
+    <div class="news">
+      <p lang="en-us">{{ colored_text|safe }}</p>
+    </div>
+  </div>
+  
+  {% endif %}
+   
+
+  <script src="{% static 'script.js' %}"></script>
+  <footer>
+    <p>&copy; 2023 Notre Site Web. Tous droits réservés.</p>
+</footer>
+</body>
+
+</html>

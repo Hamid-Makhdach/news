@@ -1,0 +1,331 @@
+{% load static %}
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>DETECTEUR DE FAUSSES NOUVELLES</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+  body {
+    height: 60%;
+
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .ticker {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    height: 60px;
+    margin-top: -7%;
+    position: absolute;
+    margin-left: 8%;
+
+
+  }
+
+  .news {
+    width: 75%;
+    background: rgba(10, 255, 2, 0.541);
+    padding: 15 2%;
+  }
+
+  .title {
+    width: 20%;
+    text-align: center;
+    background: #0400ff;
+    position: relative;
+  }
+
+  .title:after {
+    position: absolute;
+    content: "";
+    right: -16%;
+    border-left: 20px solid #0400ff;
+    border-top: 29px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 33px solid transparent;
+    top: 0;
+  }
+
+  .title h5 {
+    font-size: 18px;
+    margin: 8% 0;
+  }
+
+  .news marquee {
+    font-size: 16px;
+  }
+
+
+
+
+
+  .descript {
+    margin-top: 15%;
+    margin-left: 8%;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    padding: inherit;
+    text-align: justify;
+    text-decoration: dotted;
+    width: 80%;
+  }
+
+
+
+
+
+  .container {
+    position: absolute;
+  }
+
+  .button {
+    border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #eeeeee;
+    font-weight: 1000;
+    font-size: 18px;
+    background-color: rgb(0, 4, 255);
+    padding: 15px 50px;
+    margin: 2%;
+  }
+
+  .button span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .button:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 470%;
+    width: 140%;
+    background: rgb(2, 255, 2);
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transform: translateX(-100%) translateY(-50%) rotate(45deg);
+    transform: translateX(-100%) translateY(-43%) rotate(45deg);
+  }
+
+  .button:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+
+  .about{
+    margin-left: 40%;
+    padding:4 4%;
+    margin-top: 10%;
+
+  }
+  h1, h2 {
+  color: #007BFF;
+}
+  .contain{
+    width:81%;
+    height: 305%;
+    background-color: rgba(94, 107, 106, 0.479);
+    margin-top: -1.8%;
+    margin-left: 8%;
+    border-top: 80%;
+    border-color: #fff;
+
+  }
+  
+  .object{
+    width:32%;
+    font-family: 'Playfair Display', serif;
+    text-align: justify;
+    text-decoration: dotted;
+    font-size: 16px;
+    text-align-last: center;
+    margin-left: 2%;
+    border-radius: 3%;
+    border: #15ff00;
+    border-width: 2px;
+    border-style: outset;
+    background-color: #fff;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    
+
+  }
+  .fonction{
+    width:32%;
+    font-family: 'Playfair Display', serif;
+    text-align: justify;
+    text-decoration: dotted;
+    font-size: 16px;
+    margin-left: 34%;
+    border-radius: 3%;
+    text-align-last: center;
+    border: #15ff00;
+    border-width: 1px;
+    border-style: outset;
+    background-color: #fff;
+    color: black;
+
+  }
+  .engage{
+    width:32%;
+    font-family: 'Playfair Display', serif;
+    text-align: justify;
+    text-decoration: dotted;
+    text-align-last: center;
+    font-size: 16px;
+    margin-left: 66%;
+    border-radius: 3%;
+    border: #15ff00;
+    border-width: 1px;
+    border-style: outset;
+    background-color: #fff;
+    color: black;
+  }
+  
+p {
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.ri-home-smile-fill {
+  color: #15ff00;
+  font-size: 20px;
+}
+</style>
+
+<body>
+  <header>
+    <a href="{% url 'home' %}" class="logo"><i class="ri-home-smile-fill"></i>
+      <sapn>DFN</sapn>
+    </a>
+    <ul class="navbar">
+      <li><a href="{% url 'home' %}" class="active">Accueil</a></li>
+      <li><a href="{% url 'predict' %}">Prediction</a></li>
+      <li><a href="{% url 'hist' %}">Historiques</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+      <li><a href="#APropos">A propos</a></li>
+
+    </ul>
+    <div class="main">
+      <a href="{% url 'singin' %}" class="user"><i class="ri-user-fill"></i>Se connecter</a>
+      <a href="{% url 'register' %}">s'inscrire</a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+
+
+  </header>
+
+
+
+
+  <div class="containers">
+    <div class="ticker">
+      <div class="title">
+        <h5>RESTEZ VIGILANT</h5>
+      </div>
+      <div class="news">
+        <marquee>
+          <p>
+            Vérifiez les sources avant de partager des nouvelles. Notre système d'analyse vous aide à repérer les
+            fausses nouvelles.
+          </p>
+        </marquee>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="descript">
+
+    <h1>NOTRE LUTTE CONTRE LES FAUSSES NOUVELLES :</h1>
+    <p >Bienvenue sur <b ><i class="ri-home-smile-fill"></i>DFN</b>, une plateforme dédiée à la lutte contre la désinformation et la propagation
+      des fausses nouvelles. Notre mission est d'aider les utilisateurs à accéder à des informations fiables et vérifiées
+      tout en développant leur sens critique face aux contenus potentiellement trompeurs présents dans le paysage médiatique.</p>
+    <br>
+
+    <div class="container">
+      <a href="{% url 'predict' %}" class="button">COMMENCER</a>
+    </div>
+  </div>
+
+
+
+<div id="APropos"></div>
+  <div class="about" >
+   <h1 style="color: aliceblue;">A Propos</h1>
+  </div>
+  
+  <div class="contain">
+    <br><br>
+    <div class="object">
+      
+      <h2 style="text-align:center">Notre Objectif :</h2>
+      <br>
+      <p style="margin-left: 2%;margin-right: 2%;">Chez <b><i class="ri-home-smile-fill"></i>DFN</b>, nous nous engageons à fournir un outil efficace et rapide permettant de détecter
+         les fausses nouvelles au sein des articles de presse. Notre système de classification de texte repose sur 
+         des technologies avancées d'intelligence artificielle et de traitement du langage naturel. Grâce à notre algorithme 
+         sophistiqué, nous cherchons à promouvoir l'accès à une information de qualité et à contrer la propagation de la désinformation
+          sur Internet.</p>
+    </div>
+    <div class="fonction">
+      <h2 style="text-align:center">Comment ça fonctionne :</h2>
+      <br>
+      <p style="margin-left: 2%;margin-right: 2%;">Notre plateforme recueille des articles de presse provenant de diverses sources réputées et les soumet à une analyse approfondie.
+        Nous nous basons sur des sites de vérification des faits réputés pour étiqueter la véracité des articles. Ces données sont
+        ensuite utilisées pour entraîner notre modèle de détection des fausses nouvelles. Les utilisateurs peuvent soumettre un extrait
+          de texte, ou un article complet et recevoir une évaluation instantanée sur sa crédibilité.</p>
+    </div>
+    <div class="engage">
+      <h2 style="text-align:center">Confidentialité et Sécurité :</h2>
+      <br>
+      <p style="margin-left: 2%;margin-right: 2%;">Chez <b color="red"><i class="ri-home-smile-fill"></i>DFN</b>, nous accordons une grande importance à la confidentialité des utilisateurs et à la protection
+        de leurs données personnelles. Nous prenons toutes les mesures nécessaires pour assurer la sécurité de nos utilisateurs
+        lors de leur navigation sur notre plateforme. Rejoignez-nous dans notre combat contre les fausses nouvelles et contribuez à bâtir un environnement médiatique
+        plus responsable et éclairé.</p>
+    </div>
+  </div>
+
+
+  <script src="{% static 'script.js' %}"></script>
+  <footer>
+    <p>&copy; 2023 Notre Site Web. Tous droits réservés.</p>
+</footer>
+</body>
+
+</html>
